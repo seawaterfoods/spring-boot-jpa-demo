@@ -14,3 +14,5 @@ spring:
       ddl-auto: update
         #  顯示出SQL語句
     show-sql: true
+#    可控制是否依照model來創建相應的表　ture可創建　false不可創建
+#    generate-ddl: false

@@ -9,13 +9,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Date;
 
-@SpringBootTest
+//@SpringBootTest
 public class AuthorTests {
 
     @Autowired
     private AuthorRepository authorRepository;
 
-    @Test
+//    @Test
     public void saveAuthorTest(){
         Author author=new Author();
         author.setNickName("PizzaHot");
