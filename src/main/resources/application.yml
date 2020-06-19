@@ -1,16 +1,16 @@
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/spring_boot?serverTimezone=GMT%2B8&useUnicode=true&characterEncodeing=utf-8
-      username: root
-      password: 1234
+    username: root
+    password: 1234
       # 設定輸入設定
-      #  validate 加载 Hibernate，验證創建数據库表结購
-      #  create 每次加载 Hibernate，重新創建數據库表結構，这就是導致數據庫表的数具丢失的原因。
-      #  create-drop 加载 Hibernate時，創建，退出是删除表結構
-      #  update 加载 Hibernate 自動更新數據库结構
-      jpa:
-        hibernate:
-          ddl-auto: update
+      #  validate 第一次加载 Hibernate，只會根據model验證数據库表结購，不會新刪改查
+      #  create 每次加载 Hibernate，重新創建數據库表結構，这就是導致數據庫表的数據丢失的原因（會刪除舊表而後創建新的）。
+      #  create-drop 第一次加载 Hibernate時，創建一個新的表，但退出時會删除表結構
+      #  update 第一次加载 Hibernate，會根據我們的model來創建新表 自動更新數據库结構，而後續model改變結構時不會跟著刪改，但會跟著新增
+  jpa:
+    hibernate:
+      ddl-auto: update
         #  顯示出SQL語句
-        show-sql: true
+    show-sql: true
