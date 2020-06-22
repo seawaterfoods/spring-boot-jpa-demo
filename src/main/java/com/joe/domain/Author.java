@@ -40,6 +40,8 @@ public class Author {
     private Long id;
     private String nickName;
     private String phone;
+
+    @Temporal(TemporalType.DATE)
     private Date signDate;
 
 //    關於構造函式，因Hibernate是應用到無參數建構子反射到數據庫，所以一定要建一個無參數建構子。
