@@ -4,9 +4,13 @@ package com.joe;
 import com.alibaba.fastjson.JSON;
 import com.joe.domain.Author;
 import com.joe.domain.AuthorRepository;
+import com.joe.service.AuthorService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 import java.util.Date;
@@ -14,6 +18,9 @@ import java.util.List;
 
 @SpringBootTest
 public class AuthorTests {
+
+    @Autowired
+    private AuthorService authorService;
 
     @Autowired
     private AuthorRepository authorRepository;
@@ -46,7 +53,7 @@ public class AuthorTests {
 //        authorRepository.save(author4);
     }
 
-    @Test
+//    @Test
     public void findAuthorTest(){
 //        List<Author> authors = authorRepository.findBySql("o");
 //        List<Author> authors = authorRepository.findByPhone("0226");
@@ -56,5 +63,20 @@ public class AuthorTests {
 //                Sort.by(Sort.Direction.DESC,"signDate"));
         int i =authorRepository.setNickName("PizzaHot","0228825252");
 //        System.out.println(JSON.toJSONString(authors,true));
+    }
+
+//    @Test
+    public void findAuthorForPageTest(){
+
+        Sort sort =Sort.by(Sort.Direction.DESC,"id");
+        Pageable pageable =PageRequest.of(0,4,sort);
+        Page<Author> page = authorRepository.findAll(pageable);
+
+        System.out.println(JSON.toJSONString(page,true));
+    }
+
+    @Test
+    public void teansactionalTest(){
+        authorService.updateAuthor();
     }
 }
