@@ -44,6 +44,19 @@ public class Author {
     @Temporal(TemporalType.DATE)
     private Date signDate;
 
+//    @OneToOne(cascade = {CascadeType.XXX,CascadeType.XXX})
+//    給予此物件實體操作另一物件的權限，
+//    CascadeType.PERSIST級聯保存，給予可於資料庫中保存此時物件的權限
+//    CascadeType.MERGE級聯合併，給予可於資料庫中改變此物件的權限
+//    CascadeType.REMOVE級聯刪除，給予可於資料庫中刪除此物件的權限
+//    CascadeType.DETACH級聯脫去關聯，如果要刪除一個實體物件但有FKey所以無法刪除，
+//    但此操作可以自動撤銷所有關聯的FKey權限。
+//    CascadeType.REFRESH級聯刷新操作，假設有多人同時操作同一物件時，要先刷新最新已保存之物件後，才可以保存同一物件。
+//    CascadeType.ALL擁有以上所有權限。
+//    @JoinColumn(name = "xxxxx")可指定FKey關聯字段名字
+    @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE})
+    private Wallet wallet;
+
 //    關於構造函式，因Hibernate是應用到無參數建構子反射到數據庫，所以一定要建一個無參數建構子。
     public Author() {
     }
@@ -78,6 +91,14 @@ public class Author {
 
     public void setSignDate(Date signDate) {
         this.signDate = signDate;
+    }
+
+    public Wallet getWallet() {
+        return wallet;
+    }
+
+    public void setWallet(Wallet wallet) {
+        this.wallet = wallet;
     }
 
     @Override

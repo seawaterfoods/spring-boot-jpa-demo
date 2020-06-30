@@ -1,5 +1,6 @@
-package com.joe.domain;
+package com.joe.domain.repository;
 
+import com.joe.domain.Author;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

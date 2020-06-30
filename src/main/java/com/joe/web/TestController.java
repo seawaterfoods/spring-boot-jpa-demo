@@ -1,10 +1,8 @@
 package com.joe.web;
 
 
-import com.joe.domain.Author;
-import com.joe.domain.AuthorRepository;
+import com.joe.domain.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;

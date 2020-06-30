@@ -1,7 +1,7 @@
 package com.joe.service.impl;
 
 import com.joe.domain.Author;
-import com.joe.domain.AuthorRepository;
+import com.joe.domain.repository.AuthorRepository;
 import com.joe.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,5 +29,28 @@ public class AuthorServiceImpl implements AuthorService {
         Author author2 = authorRepository.save(author1);
 
         return author2;
+    }
+
+    @Override
+    public Author saveAuthor(Author author) {
+        return authorRepository.save(author);
+    }
+
+    @Override
+    public Author updateAuthor(Author author) {
+        return authorRepository.save(author);
+    }
+
+    @Override
+    public Author findAuthor(Long id) {
+//        if (!authorRepository.findById(id).isPresent()){
+//            return null;
+//        }
+        return authorRepository.findById(id).get();
+    }
+
+    @Override
+    public void deleteAuthor(Long id) {
+        authorRepository.deleteById(id);
     }
 }
