@@ -18,6 +18,10 @@ public class Comment {
     @ManyToOne
     private Article article;
 
+    public void clearComment(){
+        this.getArticle().getComments().remove(this);
+    }
+
     public Comment() {
     }
 

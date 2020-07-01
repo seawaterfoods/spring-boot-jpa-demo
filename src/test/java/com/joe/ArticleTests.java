@@ -29,7 +29,7 @@ public class ArticleTests {
     @Autowired
     private ArticleService articleService;
 
-//    @Test
+    @Test
     public void saveArticle(){
         Article article = new Article();
         article.setTitle("關於撲街");
