@@ -17,6 +17,10 @@ public class Article {
     @OneToMany(mappedBy = "article",cascade = {CascadeType.PERSIST,CascadeType.REMOVE},fetch = FetchType.EAGER)
     private List<Comment> comments =new ArrayList<>();
 
+//    ,fetch = FetchType.EAGER
+    @ManyToMany(mappedBy = "articles")
+    private List<Topic> topics = new ArrayList<>();
+
     public void addComment(Comment comment){
         comment.setArticle(this);
         comments.add(comment);
@@ -57,12 +61,23 @@ public class Article {
         this.comments = comments;
     }
 
+
+    public List<Topic> getTopics() {
+        return topics;
+    }
+
+    public void setTopics(List<Topic> topics) {
+        this.topics = topics;
+    }
+
     @Override
     public String toString() {
         return "Article{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
+                ", comments=" + comments +
+                ", topics=" + topics +
                 '}';
     }
 }
