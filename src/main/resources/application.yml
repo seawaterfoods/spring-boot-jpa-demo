@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/spring_boot?serverTimezone=GMT%2B8&useUnicode=true&characterEncodeing=utf-8
+    url: jdbc:mysql://127.0.0.1:3306/bookcase?serverTimezone=GMT%2B8&useUnicode=true&characterEncodeing=utf-8
     username: root
-    password: 1234
+    password: ''
       # 設定輸入設定
       #  validate 第一次加载 Hibernate，只會根據model验證数據库表结購，不會新刪改查
       #  create 每次加载 Hibernate，重新創建數據库表結構，这就是導致數據庫表的数據丢失的原因（會刪除舊表而後創建新的）。
